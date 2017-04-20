@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  # TODO: Can we use the virtus gem to coerce the response values from the
+  # the API into other types (e.g. DateTime without calling DateTime.iso8601)
+  # TODO: Should we change the model representations at all in the controller?
+  # Should we use a decorator instead?
   def index
     user = User.find 1
     user.birth_date = datetime_formatter.date(DateTime.iso8601 user.birth_date)
