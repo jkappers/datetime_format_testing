@@ -8,10 +8,10 @@
 
 <%= form_for @user do |f| %>
   <%= f.text_field :birth_date %>
-  <%= @format_source.friendly_date_format %>
+  <%= @datetime_format_source.friendly_date_format %>
   <br/>
   <%= f.text_field :created_at %>
-  <%= @format_source.friendly_time_format %>
+  <%= @datetime_format_source.friendly_time_format %>
   <br/>
   <%= f.submit %>
 <% end %>

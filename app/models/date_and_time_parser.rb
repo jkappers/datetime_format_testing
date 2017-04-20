@@ -1,7 +1,7 @@
 # Parses date and time strings using a format source. The format source must
 # implement a date_format and time_format property or method that returns a
 # valid date/time format string.
-class FormattedValueParser
+class DateAndTimeParser
   def initialize(format_source)
     @format_source = format_source
   end
