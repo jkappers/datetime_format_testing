@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def format_preference
-    @format_preference = User.current
+    @format_preference ||= User.current
   end
 
   def preferred_format_parser

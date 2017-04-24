@@ -1,5 +1,6 @@
 class UpdateUser < AppInteraction
   object :user
+
   string :name
   string :birth_date
 
@@ -14,9 +15,9 @@ class UpdateUser < AppInteraction
     user.name = name if name?
     user.birth_date = preferred_format_parser.date(birth_date) if birth_date?
 
-#    unless user.save
+    unless user.save
       errors.merge! user.errors
-#    end
+    end
 
     user
   end

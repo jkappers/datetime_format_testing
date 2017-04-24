@@ -1,9 +1,9 @@
 module FormatPreference
   def date_format
-    Format.all.first
+    Format.new '%m/%d/%Y','MM/DD/YYYY'
   end
 
   def time_format
-    Format.all.last
+    Format.new '%m/%d/%Y %l:%M %p', 'MM/DD/YYYY 12:30 AM'
   end
 end

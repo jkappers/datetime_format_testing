@@ -7,6 +7,7 @@ class User
   with_options presence: true do |m|
     m.validates :birth_date
     m.validates :created_at
+    m.validates :name
   end
 
   def self.current
