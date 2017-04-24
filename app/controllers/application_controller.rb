@@ -3,15 +3,16 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def datetime_format_source
-    @datetime_format_source = User.current
+  def format_preference
+    @format_preference = User.current
   end
 
-  def datetime_parser
-    @datetime_parser ||= DateAndTimeParser.new datetime_format_source
+  def preferred_format_parser
+    @preferred_format_parser ||= PreferredFormatParser.new format_preference
   end
 
-  def datetime_formatter
-    @datetime_formatter ||= DateAndTimeFormatter.new datetime_format_source
+  def preferred_format_formatter
+    @preferred_format_formatter ||=
+      PreferredFormatFormatter.new format_preference
   end
 end
