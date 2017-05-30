@@ -8,7 +8,7 @@ class DateStringValidator < ActiveModel::EachValidator
     parsed_value = parse_date value, date_format.format_string
 
     unless [DateTime, Date].any? { |kind| parsed_value.is_a? kind }
-      record.errors.add attribute, format: date_format
+      record.errors.add attribute, :invalid_format, humanized_format: date_format.humanized_format_string
     end
   end
 

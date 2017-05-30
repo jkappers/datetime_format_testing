@@ -3,12 +3,12 @@
 #  format[Format]
 #
 class TimeStringValidator < ActiveModel::EachValidator
-  def valitime_each(record, attribute, value)
+  def validate_each(record, attribute, value)
     time_format = options[:format].call record
     parsed_value = parse_time value, time_format.format_string
 
     unless [DateTime, Date].any? { |kind| parsed_value.is_a? kind }
-      record.errors[attribute] << "invalid time #{time_format.friendly_format_string}"
+      record.errors.add attribute, :invalid_format, humanized_format: date_format.humanized_format_string
     end
   end
 
